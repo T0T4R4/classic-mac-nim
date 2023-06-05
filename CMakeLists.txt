@@ -1,14 +1,11 @@
-add_application(Dialog
-    src/@m..@s..@s..@s..@susr@slib@snim@spure@sparseutils.nim.c
-    src/@m..@s..@s..@s..@susr@slib@snim@spure@sstrutils.nim.c
-    src/@m..@s..@s..@s..@susr@slib@snim@sstd@sprivate@sdigitsutils.nim.c
-    src/@m..@s..@s..@s..@susr@slib@snim@ssystem.nim.c
-    src/@m..@s..@s..@s..@susr@slib@snim@ssystem@sdollars.nim.c
-    src/@m..@s..@s..@s..@susr@slib@snim@ssystem@sio.nim.c
-    src/@mhello.nim.c
-    dialog.c
-    dialog.r
-   )
+cmake_minimum_required(VERSION 3.0)
+project(YourProjectName)
+
+# Find the Nim-generated files
+file(GLOB NIM_GENERATED_FILES "src/*.nim.c")
+
+# Add the Application files and the Nim helpers files
+add_application(Dialog dialog.c dialog.r ${NIM_GENERATED_FILES})
 
  target_include_directories(Dialog PRIVATE /usr/lib/nim)
 
